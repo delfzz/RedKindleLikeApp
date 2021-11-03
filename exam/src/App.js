@@ -3,7 +3,7 @@ import Files from './components/Files'
 
 function App() {
   return (
-    <div className="App">
+    <div className = "App">
       <div>
         <Files/>
       </div>
