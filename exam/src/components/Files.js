@@ -12,22 +12,24 @@ const Files = () => {
 
 const readTextFileSecond=(file)=>
 {
-    var fileContent = new XMLHttpRequest();
+    const fileContent = new XMLHttpRequest();
     fileContent.open("GET", file, false);
     fileContent.onreadystatechange = function ()
     {
-        if(fileContent.readyState === 4)
+        if(fileContent.readyState === 4 && fileContent.status === 200)
         {
-            if(fileContent.status === 200 || fileContent.status === 0)
-            {
-                var allText = fileContent.responseText;
+            
+              const allText = fileContent.responseText;
                setFileData(allText)
                setShow(true)
                setBackBtn(true)
-            }
+               
+            
+        }else{
+            alert('Not available')
         }
     }
-    fileContent.send(null);
+    fileContent.send();
    
 }
 const backButton =()=>{
